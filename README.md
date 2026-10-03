@@ -1,9 +1,9 @@
 # 🧪 Advanced Quality Architecture - Playwright & MCP
 
-![Playwright Tests](https://github.com/gustavaom7/playwright/actions/workflows/playwright.yml/badge.svg?branch=main)
-[![Quality](https://img.shields.io/badge/Quality-Assurance-orange)](https://github.com/gustavaom7/playwright)
-[![MCP](https://img.shields.io/badge/MCP-Playwright-blueviolet)](https://github.com/gustavaom7/playwright/blob/main/.mcp.json)
-![Performance (k6)](https://github.com/gustavaom7/playwright/actions/workflows/performance.yml/badge.svg?branch=main)
+![Playwright Tests](https://github.com/gustavaom7/playwright-typescript-e2e-framework/actions/workflows/playwright.yml/badge.svg?branch=main)
+[![Quality](https://img.shields.io/badge/Quality-Assurance-orange)](https://github.com/gustavaom7/playwright-typescript-e2e-framework)
+[![MCP](https://img.shields.io/badge/MCP-Playwright-blueviolet)](https://github.com/gustavaom7/playwright-typescript-e2e-framework/blob/main/.mcp.json)
+![Performance (k6)](https://github.com/gustavaom7/playwright-typescript-e2e-framework/actions/workflows/performance.yml/badge.svg?branch=main)
 
 Professional E2E automation suite developed with **Playwright** and **TypeScript** against [saucedemo.com](https://www.saucedemo.com/), extended with an **AI-driven workflow** (Playwright MCP + Claude Code skills) for test generation and defect triage, **k6** browser performance checks and **Slack** reporting. See [docs/ai-workflow.md](docs/ai-workflow.md).
 
