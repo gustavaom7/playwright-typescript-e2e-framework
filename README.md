@@ -43,7 +43,7 @@ Professional E2E automation suite developed with **Playwright** and **TypeScript
 ### ⚙️ DevOps & CI/CD
 * **GitHub Actions:** lint, typecheck, and the full cross-browser regression suite run on every push/PR.
 * **Dependency caching:** Playwright browser binaries are cached by version to speed up runs.
-* **Live report on GitHub Pages:** the HTML report of the latest `main` run is published at https://gustavaom7.github.io/playwright/ (requires Pages source set to *GitHub Actions*).
+* **Live report on GitHub Pages:** the HTML report of the latest `main` run is published at https://gustavaom7.github.io/playwright-typescript-e2e-framework/ (requires Pages source set to *GitHub Actions*).
 * **Cost-aware matrix:** push/PR run Chromium + Chrome mobile for a fast signal; a nightly schedule (and manual dispatch) runs every browser and mobile project.
 * **Automated Reporting:** HTML report uploaded as a build artifact on every run, even on failure.
 * **Failure triage in CI:** every run turns failures into ranked bug drafts (uploaded as the `bug-report-drafts` artifact and written to the job summary).
@@ -148,7 +148,7 @@ The automation runs on **Ubuntu-latest** via **GitHub Actions**:
 
 `tests/authenticated/visual-regression.spec.ts` exists and is wired to run, but its baseline screenshots are **deliberately not committed yet**. Generating a first baseline without a human reviewing it would freeze whatever the page looks like today as "correct" — including any real bug already on the page. So right now:
 
-* `playwright.yml`'s push/PR step runs with `SEM_TAG='@visual'`, which excludes these tests from the badge you see above.
+* `playwright.yml` runs both the push/PR step and the nightly all-browsers step with `SEM_TAG='@visual'`, which excludes these tests from the badge you see above.
 * A separate workflow, `.github/workflows/visual-regression.yml`, is manual-only (`workflow_dispatch`) with an `update_baselines` checkbox.
 
 To turn visual regression on for real:
@@ -156,7 +156,7 @@ To turn visual regression on for real:
 1. Run the **Visual Regression** workflow from the Actions tab with `update_baselines` checked. It runs on the same `ubuntu-latest` runner as the rest of CI, which matters — screenshots taken on a local macOS/Windows machine render fonts differently and will not match what CI produces.
 2. Download the `visual-baselines` artifact from that run and look at every image. This step is the whole point — it's the human review that stops a bug from being baked in as "correct".
 3. Commit the reviewed PNGs to `tests/authenticated/visual-regression.spec.ts-snapshots/`.
-4. Remove the `SEM_TAG: '@visual'` block from `playwright.yml` so these tests join the regular push/PR run.
+4. Remove both `SEM_TAG: '@visual'` blocks from `playwright.yml` so these tests join the regular push/PR and nightly runs.
 
 ## 👤 Author
 
